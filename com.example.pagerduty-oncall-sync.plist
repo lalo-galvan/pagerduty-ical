@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Job identifier — change "yourname" to something unique -->
+    <key>Label</key>
+    <string>com.yourname.pagerduty-oncall-sync</string>
+
+    <!-- Command to run -->
+    <key>ProgramArguments</key>
+    <array>
+        <!-- UPDATE THIS to your uv path (run: which uv) -->
+        <string>/opt/homebrew/bin/uv</string>
+        <string>run</string>
+        <string>pagerduty_to_apple_calendar.py</string>
+    </array>
+
+    <!-- Working directory — UPDATE to where you cloned this repo -->
+    <key>WorkingDirectory</key>
+    <string>/Users/yourname/path/to/pagerduty-ical</string>
+
+    <!-- Environment variables -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PAGERDUTY_API_KEY</key>
+        <!-- UPDATE: your PagerDuty API token (My Profile → User Settings → Create API User Token) -->
+        <string>YOUR_PAGERDUTY_API_KEY</string>
+
+        <key>PAGERDUTY_USER_ID</key>
+        <!-- UPDATE: your PagerDuty user ID (found in your profile URL: /users/PXXXXXX) -->
+        <string>PXXXXXX</string>
+
+        <key>PAGERDUTY_SCHEDULE_ID</key>
+        <!-- UPDATE: the schedule ID to sync (found in the schedule URL: /schedules/PXXXXXX) -->
+        <string>PXXXXXX</string>
+    </dict>
+
+    <!-- Run every 12 hours (43200 seconds) -->
+    <key>StartInterval</key>
+    <integer>43200</integer>
+
+    <!-- Also run immediately when loaded -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Log output for debugging -->
+    <key>StandardOutPath</key>
+    <string>/tmp/pagerduty-oncall-sync.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/pagerduty-oncall-sync.log</string>
+</dict>
+</plist>

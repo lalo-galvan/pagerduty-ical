@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets / local config
+secrets
+.env
+
+# Personal launchd plist (use the .example as a template)
+com.*.plist
+!com.example.pagerduty-oncall-sync.plist
+
+# Claude Code cache
+.claude/

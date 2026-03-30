@@ -1,0 +1,7 @@
+[project]
+name = "pagerduty-ical"
+version = "0.1.0"
+description = "Sync PagerDuty on-call shifts directly into Apple Calendar"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []

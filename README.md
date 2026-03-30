@@ -63,6 +63,24 @@ uv run pagerduty_to_apple_calendar.py --purge --dry-run
 | `ONCALL_CALENDAR_NAME` | `On-Call` | Calendar name in Apple Calendar |
 | `ONCALL_EVENT_TITLE` | `On-Call 📟` | Event title shown on the calendar |
 
+## Sharing the calendar with family
+
+The script writes events into a named calendar. For family sharing to work, that calendar must be an iCloud calendar (not a local one) — so you need to create it manually before running the script for the first time.
+
+**One-time setup:**
+
+1. Open **Apple Calendar**
+2. File → **New Calendar** → choose **iCloud** as the account (important — not "On My Mac")
+3. Name it whatever you want (default the script looks for: `On-Call`)
+   - To use a different name, set `ONCALL_CALENDAR_NAME=Your Name` when running the script
+4. Right-click the new calendar → **Share Calendar...**
+5. Enter the iCloud email addresses of the people you want to share with
+6. They accept the invitation and will see your shifts appear automatically
+
+Once that calendar exists, the script will find it by name and add/remove events into it on every sync run.
+
+> **Note:** iCloud calendar sharing requires all parties to have an iCloud account.
+
 ## Automate with launchd (macOS)
 
 Copy and customize the example plist:
